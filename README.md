@@ -1,2 +1,7 @@
-# ahyeon0508
-# Algorithm
+알고리즘
+
+- 그리디 & 구현
+- 정렬
+- DFS & BFS
+- 이진탐색
+- DP
