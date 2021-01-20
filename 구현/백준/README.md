@@ -29,3 +29,20 @@ for i in range(1, cnt):
     경우의 수만 잘 생각하면 바로 풀 수 있는 문제이다.
 
     🔑Keypoint : 가장 마지막에 들어온 값만 가지고 비교하면 안 됨(ex: 5 5 6 3 5 4 -> 3)
+
+3. 백준 2750 수 정렬하기
+``` python
+# 버블 정렬
+for i in range(cnt):
+    for j in range(1, cnt):
+        if data[j-1] > data[j]:
+            temp = data[j]
+            data[j] = data[j-1]
+            data[j-1] = temp
+
+```
+
+    정렬 알고리즘 중에서 가장 먼저 배웠던 버블 정렬.. 오랜만이당..
+    졍렬 알고리즘 복습 후에 다른 정렬 알고리즘으로도 구현할 예정
+
+    🔑Keypoint : 다양한 정렬 알고리즘
