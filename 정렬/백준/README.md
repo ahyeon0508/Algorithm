@@ -11,3 +11,13 @@ data.sort()
 
     🔑 Keypoint : 시간 복잡도가 O(nlogn)인 정렬 기법 사용하기
     
+2. 백준 10814 나이순 정렬
+``` python
+member.sort(key=lambda data: int(data[0]))
+```
+
+    같은 나이일 수도 있다는 조건 때문에 조금 어려웠던 문제이다.
+    딕셔너리로 구현하려고 했지만 키값은 중복될 수가 없으므로 그에 대한 해법으로 lambda를 찾아 사용했다.
+
+    🔑 Keypoint : 나이는 같을 수도 있다, lambda 사용하기
+    
