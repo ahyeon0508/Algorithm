@@ -20,4 +20,13 @@ member.sort(key=lambda data: int(data[0]))
     딕셔너리로 구현하려고 했지만 키값은 중복될 수가 없으므로 그에 대한 해법으로 lambda를 찾아 사용했다.
 
     🔑 Keypoint : 나이는 같을 수도 있다, lambda 사용하기
-    
+
+3. 백준 11650 좌표 정리하기
+``` python
+coordinate.sort(key=lambda data: (data[0], data[1]))
+```
+
+    10814번 문제보다 간단한 문제이다.
+    (지금까지 푼 문제들 중에 난이도 최하🥰 다른 문제들도 이렇게 쉽게 풀 수 있길🙏 열공하자🔥)
+
+    🔑 Keypoint : lambda 사용하기
