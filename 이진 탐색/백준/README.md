@@ -67,3 +67,27 @@ def binary_search(length, N):
     📖 참고 : https://claude-u.tistory.com/443
 
     🔑 Keypoint : 랜선의 길이를 움직여 랜선 개수를 채우는지 본다.
+
+4. 2805 나무 자르기
+``` python
+def binary_search(height, M):
+    start = 1
+    end = max(height)
+    while start <= end:
+        mid = (start + end) // 2
+        result = 0
+        for i in height:
+            if i >= mid:
+                result += i - mid
+
+        if result >= M:
+            start = mid + 1
+        else:
+            end = mid - 1
+
+    print(end)
+```
+
+    이진 탐색 문제이며 랜선 자르기와 유사한 문제이다.
+
+    🔑 Keypoint : 나무의 높이를 움직여 미터를 맞춘다.
