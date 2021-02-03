@@ -91,3 +91,34 @@ def binary_search(height, M):
     이진 탐색 문제이며 랜선 자르기와 유사한 문제이다.
 
     🔑 Keypoint : 나무의 높이를 움직여 미터를 맞춘다.
+
+5. 2110 공유기 설치
+``` python
+def binary_search(data):
+    start = 1
+    end = data[-1] - data[0]
+    result = 0
+    while start <= end:
+        mid = (start + end) // 2
+        cnt = 1
+        cur = data[0]
+        for i in range(1, N):
+            if mid <= data[i] - cur:
+                cnt += 1
+                cur = data[i]
+
+        # 더 많이 설치하려면 간격 줄이기
+        if cnt >= C:
+            result = mid
+            start = mid + 1
+        # 줄이려면 간격 늘리기
+        else:
+            end = mid - 1
+
+    print(result)
+```
+
+    랜선 자르기와 나무 자르기랑 비슷한 문제인 것 같지만 조금 더 어려운 문제였다.
+    집의 개수는 20만, 집의 좌표 범위는 10억이므로, 시간 복잡도(O(NlogX))는 20만*30=600만 정도이다.
+
+    🔑 Keypoint : 공유기 수가 더 설치되어야 한다면 간격을 줄이고, 공유기 수를 줄여야 한다면 간격을 늘려야한다.
