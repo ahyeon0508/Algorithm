@@ -16,3 +16,31 @@ for i in range(2, N+1):
     이 문제의 점화식은 dp[N] = min(dp[N-1], dp[N//2] , dp[N//3]) + 1이다.
 
     🔑 Keypoint : 점화식 파악하기, bottom-up
+    
+2. 11726 2×n 타일링
+``` python
+s = [0, 1, 2]
+for i in range(3, 1001):
+  s.append(s[i-2] + s[i-1])
+n = int(input())
+print(s[n] % 10007)
+```
+
+    n의 방법의 수는 n-2 + n-1이다.
+    점화식 : dp[N] = dp[N-1]+dp[N-2]
+
+    🔑 Keypoint : s[i-2] + s[i-1]
+    
+3. 11727 2×n 타일링 2
+``` python
+s = [0, 1, 3]
+for i in range(3, 1001):
+  s.append((s[i-2] * 2) + s[i-1])
+n = int(input())
+print(s[n] % 10007)
+```
+
+    n의 방법의 수는 n-1 + (n-2) * 2이다.
+    점화식 : dp[N] = dp[N-1]+dp[(N-2)*2]
+
+    🔑 Keypoint : (s[i-2] * 2) + s[i-1]
