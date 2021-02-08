@@ -77,3 +77,65 @@ hanoi(N, 1, 3)
     그리고 2번에 있는 N-1개를 3번으로 이동시킨다.
     
     🔑 Keypoint : N-1개의 원반을 이동하는 문제라는 것을 이해하기
+
+4. 1992 쿼드트리
+``` python
+def quadtree(x, y, n):
+    if n == 1:
+        return str(video[x][y])
+
+    result = []
+    for i in range(x, x + n):
+        for j in range(y, y + n):
+            if (video[i][j] != video[x][y]):
+                result.append('(')
+                result.extend(quadtree(x, y, n // 2))
+                result.extend(quadtree(x, y + n // 2, n // 2))
+                result.extend(quadtree(x + n // 2, y, n // 2))
+                result.extend(quadtree(x + n // 2, y + n // 2, n // 2))
+                result.append(')')
+
+                return result
+
+    return str(video[x][y])
+```
+
+    종이의 개수 문제와 유사하지만 혼자만의 힘으로 풀지 못 했다😂
+    분할 정복 관련한 문제들을 더 많이 풀어봐야겠다!
+    또한 extend(리스트 끝에 iterable의 모든 항목을 넣을 수 있다)에 대해 알 수 있었다
+
+    📖 참고 : https://hwiyong.tistory.com/367
+    
+    🔑 Keypoint : 4분면으로 나누는 분할 정복 문제
+
+5. 2447 별 찍기 - 10
+``` python
+def get_stars(n):
+    matrix = []
+    for i in range(3 * len(n)):
+        if i // len(n) == 1:
+            matrix.append(n[i % len(n)] + " " * len(n) + n[i % len(n)])
+        else:
+            matrix.append(n[i % len(n)] * 3)
+    return matrix
+
+star = ["***", "* *", "***"]
+n = int(input())
+k = 0
+while n != 3:
+    n = int(n / 3)
+    k += 1
+
+for i in range(k):
+    star = get_stars(star)
+
+for i in star:
+    print(i)
+```
+
+    지금까지 본 별⭐찍기 문제중에서 가장 어려웠다.
+    그림을 그려서 3으로 나눈 나머지가 1인 경우, 3으로 나눈 몫이 1인 경우를 찾고 그에 대한 코드를 작성하면 된다.
+
+    📖 참고 : https://yeol2.tistory.com/38
+    
+    🔑 Keypoint : 3으로 나눈 나머지가 1인 경우, 3으로 나눈 몫이 1인 경우 찾기
