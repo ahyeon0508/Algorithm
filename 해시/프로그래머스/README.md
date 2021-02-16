@@ -15,3 +15,31 @@ def solution(participant, completion):
     📖 참고 : https://ychae-leah.tistory.com/23 
 
     🔑 Keypoint : collections.Counter() 모듈 or hash()
+    
+2. 베스트앨범
+``` python
+def solution(genres, plays):
+    answer = []
+    albums_total = {}
+    albums = {}
+
+    for i in range(len(genres)):
+        albums_total[genres[i]] = albums_total.get(genres[i], 0) + plays[i]
+        albums[genres[i]] = albums.get(genres[i], []) + [(plays[i], i)]
+
+    genreSort = sorted(albums_total.items(), key = lambda x: -x[1])
+
+    for (genre, play) in genreSort:
+        albums[genre] = sorted(albums[genre], key = lambda x: (-x[0], x[1]))
+        answer += [idx for (play, idx) in albums[genre][:2]]
+
+    return answer
+```
+
+    효율성에 신경쓰다 보니 약간 당황했던 문제이다. (근데 채점할 때 보니 효율성은 테스트 안 했..)
+    이 문제는 딕셔너리의 get()과 sort를 잘 사용하면 쉽게 풀 수 있는 문제인 것 같다.
+    근데 이 문제 예전에 푼 기록이 있다.. 뭐지..?? 심지어 이번이랑 유사하게 풀었음ㅋㅋㅋㅋㅋㅋ
+    
+    📖 참고 : https://johnyejin.tistory.com/50
+
+    🔑 Keypoint : 딕셔너리의 get() 사용
