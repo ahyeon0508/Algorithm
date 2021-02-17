@@ -43,3 +43,25 @@ def solution(genres, plays):
     📖 참고 : https://johnyejin.tistory.com/50
 
     🔑 Keypoint : 딕셔너리의 get() 사용
+    
+3. 전화번호 목록
+``` python
+def solution(phone_book):
+    for phone in phone_book:
+        phone_len = len(phone)
+        for i in range(len(phone_book)):
+            if phone == phone_book[i][0:phone_len] and phone_len < len(phone_book[i]):
+                answer = False
+                return answer
+
+            else:
+                answer = True
+
+    return answer
+```
+
+    생각나는 대로 코드를 짜서 정확도와 효율성 테스트에 성공할지 몰랐는데 성공했다.
+    다른 분들이 짠 코드를 보니 나와 비슷하게 푸신 분도 계시긴 했다🖐🖐
+    sort함수와 zip함수로 푸신 분들과 계셨고 문제의 의도대로 해시로 푸신 분들도 계셨다.
+    
+    🔑 Keypoint : 문자열 인덱싱
