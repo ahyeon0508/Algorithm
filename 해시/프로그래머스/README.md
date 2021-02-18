@@ -65,3 +65,28 @@ def solution(phone_book):
     sort함수와 zip함수로 푸신 분들과 계셨고 문제의 의도대로 해시로 푸신 분들도 계셨다.
     
     🔑 Keypoint : 문자열 인덱싱
+    
+4. 위장
+``` python
+def solution(clothes):
+    dict_clothes = {}
+    answer = 1
+    for i in range(len(clothes)):
+        dict_clothes[clothes[i][1]] = dict_clothes.get(clothes[i][1], 0) + 1
+
+    for cloth in dict_clothes.keys():
+        answer *= (dict_clothes[cloth] + 1)
+
+    return answer - 1
+```
+
+    조합으로 개수를 계산하면 된다.
+    대신 해당 카테고리의 아이템을 착용하지 않은 경우를 위해 모든 카테고리에 +1를 해줘야 한다.
+    또한 어떤 아이템도 착용하지 않는 경우는 없으니 마지막에 -1을 해줘야 한다.
+    Keypoint를 생각하지 못 해 아래의 사이트를 참고해서 아이디어를 얻고 내 힘으로 풀어봤다.
+    풀고 나서 다른 분들의 코드를 보니 reduce와 counter 함수를 통해 간결하게 짤 수 있다는 것을 알았다.
+    reduce 함수는 처음 봤당.. 파이썬 공부도 꾸준히 해야겠다는 생각을 했다(공부할 거 정말 많다👩‍💻)
+    
+    📖 참고 : https://itholic.github.io/kata-camouflage/
+    
+    🔑 Keypoint : 해당 카테고리의 아이템을 착용하지 않은 경우, 어떤 아이템도 착용하지 않는 경우
