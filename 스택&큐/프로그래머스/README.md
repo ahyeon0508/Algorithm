@@ -22,4 +22,30 @@ def solution(bridge_length, weight, truck_weights):
     
     📖 참고 : https://donis-note.medium.com/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8B%A4%EB%A6%AC%EB%A5%BC-%EC%A7%80%EB%82%98%EB%8A%94-%ED%8A%B8%EB%9F%AD-python-8d03d1ac2a45
     
-    🔑 Keypoint : 스택
+    🔑 Keypoint : 큐
+    
+2. 주식가격
+``` python
+def solution(prices):
+    answer = []
+    queue = deque(prices)
+
+    while queue:
+        price = queue.popleft()
+        time = 0
+        for i in queue:
+            time += 1
+            if price > i:
+                break
+        answer.append(time)
+
+    return answer
+```
+
+    문제 이해하려고 문제만 한 5번을 읽은 것 같다.
+    그러다 감이 안 와서 또 다른 분들의 도움을 받았다.
+    나는 왜 아이디어가 안 떠오를까😔
+    
+    📖 참고 : https://kangmin1012.tistory.com/25
+    
+    🔑 Keypoint : 큐
