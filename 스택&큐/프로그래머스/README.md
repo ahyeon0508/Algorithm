@@ -49,3 +49,33 @@ def solution(prices):
     📖 참고 : https://kangmin1012.tistory.com/25
     
     🔑 Keypoint : 큐
+    
+3. 기능개발_answer
+``` python
+def solution(progresses, speeds):
+    answer = []
+
+    while progresses:
+        for i in range(len(progresses)):
+            progresses[i] += speeds[i]
+
+        cnt = 0
+
+        while progresses and progresses[0] >= 100:
+            progresses.pop(0)
+            speeds.pop(0)
+            cnt += 1
+
+        if cnt:
+            answer.append(cnt)
+
+    return answer
+```
+
+    열심히 풀었는데 테스트 1, 2, 4, 5번이 실패했다ㅠㅠ (기능개발.py)
+    왜 실패했는지 도저히 모르겠어서 여러 가지 블로그를 찾아보다가 아래의 방법을 보고 이해했다.
+    그래도 오랜만에 내 힘으로 테스트 정확도 60%를 넘어서 뿌듯했다ㅎㅎ
+    
+    📖 참고 : https://duwjdtn11.tistory.com/483
+    
+    🔑 Keypoint : 큐
