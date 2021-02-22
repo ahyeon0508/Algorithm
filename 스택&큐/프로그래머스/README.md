@@ -79,3 +79,34 @@ def solution(progresses, speeds):
     📖 참고 : https://duwjdtn11.tistory.com/483
     
     🔑 Keypoint : 큐
+    
+4. 프린터
+``` python
+def solution(priorities, location):
+    answer = 0
+    clean_priorities = []
+
+    for i, p in enumerate(priorities):
+        clean_priorities.append([p, i])
+
+    q = deque(clean_priorities)
+
+    while len(q):
+        property = q.popleft()
+        if q and max(q)[0] > property[0]:
+            q.append(property)
+        else:
+            answer += 1
+            if property[1] == location:
+                break
+
+    return answer
+```
+
+    참고한 사이트랑 비슷하게 풀었는데 이번에도 테스트 몇 개가 계속 실패했다..ㅠㅠ
+    테스트 몇 개가 계속 실패했다는 것은 너무 예제에만 맞게 풀려고 했다는 뜻이다.
+    알고리즘을 잘 생각해서 풀어야겠다.
+    
+    📖 참고 : https://eda-ai-lab.tistory.com/461
+    
+    🔑 Keypoint : 큐
