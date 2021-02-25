@@ -47,3 +47,80 @@ def solution(n, computers):
     📖 참고 : https://gingerkang.tistory.com/5
 
     🔑 Keypoint : DFS/BFS
+    
+3. 단어 변환
+``` python
+def check(word, current, len_begin):
+    cnt = 0
+
+    for i in range(len_begin):
+        if word[i] != current[i]:
+            cnt += 1
+
+    if cnt == 1:
+        return True
+    else:
+        return False
+
+def solution(begin, target, words):
+    answer = 0
+
+    v = dict()
+    len_begin = len(begin)
+    q = deque()
+    q.append((begin, 0))
+    v[begin] = True
+
+    while q:
+        current, l = q.popleft()
+
+        for word in words:
+            if check(word, current, len_begin) and word not in v:
+                q.append((word, l + 1))
+                v[word] = True
+                if word == target:
+                    answer = l + 1
+
+    return answer
+```
+
+    DFS/BFS 문제는 풀면 풀수록 신기한 문제가 많은 것 같다.
+    화이팅...
+        
+    🔑 Keypoint : DFS/BFS
+    
+4. 여행경로
+``` python
+def solution(tickets):
+    def init_graph():
+        routes = defaultdict(list)
+        for key, value in tickets:
+            routes[key].append(value)
+        return routes
+
+    def dfs():
+        stack = ["ICN"]
+        path = []
+        while len(stack) > 0:
+            top = stack[-1]
+            # 특정 공항에서 출발하는 표가 없다면 또는 있지만 티켓을 다 써버린 경우
+            if top not in routes or len(routes[top]) == 0:
+                path.append(stack.pop())
+            else:
+                stack.append(routes[top].pop(0))
+        return path[::-1]
+
+    routes = init_graph()
+    for r in routes:
+        routes[r].sort()
+
+    answer = dfs()
+    return answer
+```
+
+    그렇게 난이도가 있는 문제는 아닌 것 같았는데 생각보다 푼 사람이 적은 문제이다.
+    물론 나도 못 풀어서 아래의 사이트를 참고했다ㅎ
+        
+    📖 참고 : https://khann.tistory.com/79
+    
+    🔑 Keypoint : DFS
