@@ -32,3 +32,32 @@ def solution(answers):
     📖 참고 : https://rain-bow.tistory.com/entry/Python-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC
     
     🔑 Keypoint : 학생들이 찍는 패턴 파악하기
+    
+2. 소수 찾기
+``` python
+def solution(numbers):
+    answer = 0
+    clean_combination= []
+    for i in range(1, len(numbers) + 1):
+        combination =  list(permutations(numbers, i))
+        clean_combination += [int(''.join(i)) for i in combination]
+
+    for i in set(clean_combination):
+        cnt = 0
+        for j in range(1, i + 1):
+            if i % j == 0 and i != 0:
+                cnt += 1
+            if cnt >= 3:
+                break
+        if cnt == 2:
+            answer += 1
+
+    return answer
+```
+
+    조합으로 풀려다가 뭐지?라고 생각이 되어서 참고 사이트를 보니 순열로 푸는게 나은 문제였다.
+    다른 분들은 에라토스테네스의 체로 풀었는데.. 역시 대단한 분들이 많다는 걸 느꼈다.
+    
+    📖 참고 : https://dev-jinee.tistory.com/7
+    
+    🔑 Keypoint : 소수의 조건(1과 자기 자신의 수로밖에 안 나눠지는 수)
