@@ -61,3 +61,19 @@ def solution(numbers):
     📖 참고 : https://dev-jinee.tistory.com/7
     
     🔑 Keypoint : 소수의 조건(1과 자기 자신의 수로밖에 안 나눠지는 수)
+    
+3. 카펫
+``` python
+def solution(brown, yellow):
+    for a in range(1, yellow + 1):
+        if yellow % a == 0:
+            b = yellow // a
+            if 2 * a + 2 * b + 4 == brown:
+                return [b + 2, a + 2]
+```
+
+    약수로만 풀려고 했더니 테스트 케이스에서 몇 개 걸렸다.
+    역시나 쉽게 풀리는게 이상했다..ㅎㅎ
+    약수 + 둘레의 길이를 잘 생각해줘야지 풀 수 있는 문제이다.
+        
+    🔑 Keypoint : 약수 + 둘레의 길이 생각하기
