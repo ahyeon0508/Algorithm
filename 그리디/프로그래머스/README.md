@@ -83,3 +83,81 @@ def solution(routes):
     📖 참고 : https://wwlee94.github.io/category/algorithm/greedy/speed-enforcement-camera/
         
     🔑 Keypoint : routes를 차량이 나간 지점 (진출) 기준으로 정렬
+    
+4. 큰 수 만들기
+``` python
+def solution(number, k):
+    stack = []
+
+    for i, num in enumerate(number):
+        while stack and stack[-1] < num and k > 0:
+            stack.pop()
+            k -= 1
+
+        if k == 0:
+            stack.append(number[i:])
+            break
+
+        stack.append(num)
+
+    stack = stack[:-k] if k > 0 else stack
+    answer = "".join(stack)
+    return answer
+```
+
+    컴비네이션으로 풀면 안 될 것 같지만 그렇게 풀어보니 역시나 시간 초과 에러가 났다.
+    결국 스택으로 풀면 되는 문제였다고 한다.
+    
+    📖 참고 : https://gurumee92.tistory.com/162
+        
+    🔑 Keypoint : 앞자리를 최고 큰 수로 만들기
+    
+5. 구명보트
+``` python
+def solution(people, limit):
+    answer = 0
+    i = 0
+    j = len(people) - 1
+
+    people.sort()
+
+    while i <= j:
+        answer += 1
+
+        if people[i] + people[j] <= limit:
+            i += 1
+
+        j -= 1
+
+    return answer
+```
+
+    나름 쉬웠던 문제!
+    가장 가벼운 사람과 가장 무거운 사람의 무게를 더하는 것이 포인트이다.
+        
+    🔑 Keypoint : 가장 가벼운 사람과 가장 무거운 사람의 무게 더하기
+    
+6. 섬 연결하기
+``` python
+def solution(n, costs):
+    ans = 0
+    costs.sort(key = lambda x: x[2])
+    routes = set([costs[0][0]])
+    while len(routes)!=n:
+        for i, cost in enumerate(costs):
+            if cost[0] in routes and cost[1] in routes:
+                continue
+            if cost[0] in routes or cost[1] in routes:
+                routes.update([cost[0], cost[1]])
+                ans += cost[2]
+                costs[i] = [-1, -1, -1]
+                break
+    return ans
+```
+
+    크루스칼 알고리즘으로 푸는 문제이다.
+    크루스칼 알고리즘인가?라는 생각은 떠올렸지만 크루스칼 알고리즘을 구현하는 법을 까먹어서..
+        
+    📖 참고 : https://jisun-rea.tistory.com/entry/python-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-Level3-%EC%84%AC-%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0-%ED%83%90%EC%9A%95%EB%B2%95
+    
+    🔑 Keypoint : costs를 2번째 원소로 sort하기
