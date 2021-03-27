@@ -59,3 +59,17 @@ def solution(a, b):
     sum(month[:a-1]) + b
         
     🔑 Keypoint : 나머지 연산자
+    
+4. 핸드폰 번호 가리기
+``` python
+def solution(phone_number):
+    for i in range(len(phone_number) - 4):
+        phone_number = phone_number.replace(phone_number[i], '*', 1)
+
+    return phone_number
+```
+
+    for문과 replace 함수를 통해 풀어봤다.
+    다른 분들은 폰넘버 전체 길이에서 4를 빼서 *을 만들어주고 폰넘버의 마지막 4자리를 리턴해서 푸셨다(감탄)
+        
+    🔑 Keypoint : 나머지 연산자
