@@ -72,4 +72,4 @@ def solution(phone_number):
     for문과 replace 함수를 통해 풀어봤다.
     다른 분들은 폰넘버 전체 길이에서 4를 빼서 *을 만들어주고 폰넘버의 마지막 4자리를 리턴해서 푸셨다(감탄)
         
-    🔑 Keypoint : 나머지 연산자
+    🔑 Keypoint : 문자열 변환
