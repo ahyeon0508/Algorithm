@@ -89,3 +89,28 @@ def solution(numbers):
     보통 combinations 혹은 이중 for문으로 푸는 것 같다.
         
     🔑 Keypoint : combinations 사용
+
+6. 크레인 인형뽑기 게임
+``` python
+def solution(board, moves):
+    bucket = []
+    answer = 0
+    for move in moves:
+        for i in range(len(board)):
+            if board[i][move-1] > 0:
+                bucket.append(board[i][move-1])
+                board[i][move-1] = 0
+
+                if len(bucket) >= 2 and bucket[-1] == bucket[-2]:
+                    bucket.pop(-1)
+                    bucket.pop(-1)
+                    answer += 1
+
+                break
+
+    return answer*2
+```
+
+    뻘짓 대작전,, 그리고 실패,, 너무 어렵게 풀려고 했던 것 같다..
+        
+    🔑 Keypoint : bucket[-1] == bucket[-2]
