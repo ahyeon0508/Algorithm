@@ -73,3 +73,19 @@ def solution(phone_number):
     다른 분들은 폰넘버 전체 길이에서 4를 빼서 *을 만들어주고 폰넘버의 마지막 4자리를 리턴해서 푸셨다(감탄)
         
     🔑 Keypoint : 문자열 변환
+
+5. 두 개 뽑아서 더하기
+``` python
+def solution(numbers):
+    answer = []
+    temp = list(combinations(numbers, 2))
+    for i in temp:
+        answer.append(i[0] + i[1])
+    answer = list(set(answer))
+    answer.sort()
+    return answer
+```
+
+    보통 combinations 혹은 이중 for문으로 푸는 것 같다.
+        
+    🔑 Keypoint : combinations 사용
