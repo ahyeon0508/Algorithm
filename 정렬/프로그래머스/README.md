@@ -52,3 +52,29 @@ def solution(citations):
     이 문제가 레벨2라는게 너무 안 믿긴다ㅎ.ㅎ
     
     🔑 Keypoint : h번 이상 인용된 논문이 h편 이상
+
+4. 실패율
+``` python
+def solution(N, stages):
+    fail = []
+    length = len(stages)
+    for i in range(1, N+1):
+        temp_cnt = stages.count(i)
+
+        if length == 0:
+            fail.append((i, 0))
+        else:
+            fail.append((i, temp_cnt / length))
+
+        length -= temp_cnt
+
+    fail.sort(key = lambda x: -x[1])
+    fail = [i[0] for i in fail]
+    return fail
+```
+
+    역시 카카오 문제는 다르다..
+    쉬울줄 알았는데 문제 해석부터 오래 걸림ㅠㅠㅠ
+    내일 코테 화이팅..!!
+
+    🔑 Keypoint : 문제 이해 잘하기
