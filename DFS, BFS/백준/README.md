@@ -175,3 +175,19 @@ print(result - 1) # 처음 익은 토마토가 1이기 때문에
     5. 처음 익은 토마토가 1이기 때문에 최종값에서 -1를 빼준다.
 
     🔑 Keypoint : BFS
+
+6. 백준 2606 바이러스
+``` python
+def dfs(n, start, graph, visited):
+    visited[start] = True
+    for i in range(n+1):
+        if not visited[i] and graph[start][i] == 1:
+            result.append(i)
+            dfs(n, i, graph, visited)
+    return len(result)
+```
+
+    매우 쉬운 DFS/BFS 문제였다.
+    파이썬 전역변수를 헷갈려 해서 조금 시간을 썼지만..
+
+    🔑 Keypoint : DFS/BFS
