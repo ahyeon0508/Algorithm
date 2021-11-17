@@ -46,3 +46,16 @@ for i in M:
     처음에 내림차순으로 풀었다가 다른 테스트 케이스에 걸려서 다시 오름차순으로 풀었다.
             
     🔑 Keypoint : 오름차순
+
+3. 곱하기 혹은 더하기
+``` python
+for i in range(1, len(S)):
+    if S[i] <= 1 or result <= 1:
+        result += S[i]
+    else:
+        result *= S[i]
+```
+
+    1 이하인 경우와 2이 이상인 경우를 구분하여 문제를 풀면 된다.
+            
+    🔑 Keypoint : 1 이하인 경우, 2 이상인 경우 구분
