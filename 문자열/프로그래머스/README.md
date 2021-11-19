@@ -12,3 +12,17 @@ def solution(s):
     오랜만에 쉬운 문자열 문제!
 
     🔑 Keypoint : 문자열 인덱싱
+
+2. 같은 숫자는 싫어
+``` python
+def solution(arr):
+    answer = []
+    for i in arr:
+        if len(answer) == 0 or answer[-1] != i:
+            answer.append(i)
+    return answer
+```
+
+    이 문제도 문자열 인덱싱만 잘하면 된다!
+
+    🔑 Keypoint : 문자열 인덱싱
