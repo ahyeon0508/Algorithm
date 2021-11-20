@@ -114,3 +114,18 @@ def solution(board, moves):
     뻘짓 대작전,, 그리고 실패,, 너무 어렵게 풀려고 했던 것 같다..
         
     🔑 Keypoint : bucket[-1] == bucket[-2]
+
+7. 내적
+``` python
+def solution(a, b):
+    answer = 0
+    for num in zip(a, b):
+        answer += num[0] * num[1]
+    return answer
+```
+
+    파이썬 zip() 을 이용하여 풀어보았다.
+    채점 결과 테스트 케이스는 성공했는데 내부적인 오류가 발생했다고 한다.. 뭐지..?
+    (파이썬으로 풀었다고 체크는 되어 있음..)
+        
+    🔑 Keypoint : zip()
