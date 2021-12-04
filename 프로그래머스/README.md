@@ -130,24 +130,29 @@ def solution(a, b):
         
     🔑 Keypoint : zip()
 
-8. 약수의 개수와 덧셈
+7. 오픈채팅방
 ``` python
-def solution(left, right):
-    answer = 0
-    for i in range(left, right+1):
-        temp = 0
-        for j in range(1, i+1):
-            if i % j == 0:
-                temp += 1
+def solution(record):
+    answer = []
+    member = {}
+    actions = []
 
-        if temp % 2 == 0:
-            answer += i
-        else:
-            answer -= i
+    for msg in record:
+        action = msg.split()[0]
+        if action in ('Enter', 'Change'):
+            member[msg.split()[1]] = msg.split()[2]
+        actions.append((action, msg.split()[1]))
+
+    for actionInfo in actions:
+        if actionInfo[0] == 'Enter':
+            answer.append(member[actionInfo[1]] + "님이 들어왔습니다.")
+        elif actionInfo[0] == 'Leave':
+            answer.append(member[actionInfo[1]] + "님이 나갔습니다.")
+
     return answer
 ```
 
-    약수의 정의를 잘 생각하면 되는 문제이다. (사실 쉽지 않았다ㅎ)
-    대단하신 분들은 '약수가 홀수개인 모든 수는 제곱수'라는 성질을 이용하였다.
+    이중 for문으로 풀다가 시간 초과가 걸린 문제ㅠㅠㅠㅠ
+    이제 풀 수는 있지만 시간 복잡도가 문제인 것 같다..
         
-    🔑 Keypoint : 약수란?
+    🔑 Keypoint : 시간 복잡도
