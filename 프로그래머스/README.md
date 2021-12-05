@@ -156,3 +156,26 @@ def solution(record):
     이제 풀 수는 있지만 시간 복잡도가 문제인 것 같다..
         
     🔑 Keypoint : 시간 복잡도
+
+8. 숫자 문자열과 영단어
+``` python
+def solution(s):
+    answer = ''
+    num_dict = {'zero':0, 'one':1, 'two':2, 'three':3, 'four':4, 'five':5, 'six':6, 'seven':7, 'eight':8, 'nine':9}
+    temp = ''
+    for i in list(s):
+        if i.isdigit():
+            answer += str(i)
+        else:
+            temp += i
+        if temp in num_dict.keys():
+            answer += str(num_dict[temp])
+            temp = ''
+    return int(answer)
+```
+
+    시간 초과가 걸릴까봐 조마조마 하면서 풀다 보니 푸는데 10분정도 걸린 문제이다.
+    시간 복잡도를 생각하지 않고 풀었더니 바로 풀렸다.
+    다른 분들은 replace()를 이용해 간단하게 풀었다.. 대단쓰..
+        
+    🔑 Keypoint : replace()
