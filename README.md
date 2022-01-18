@@ -2,6 +2,7 @@
 알고리즘 문제를 푸는 공간입니다 :)
 
 ## 🙆‍♀️ 공부한 알고리즘 유형
+- Data Structure
 - Implement
 - String
 - Sorting
